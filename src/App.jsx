@@ -4,7 +4,9 @@ import {
   ChevronDown,
   CircleAlert,
   ChartLine,
+  ExternalLink,
   GitBranch,
+  Info,
   X,
 } from 'lucide-react'
 
@@ -244,7 +246,23 @@ function HistoryPage() {
           </div>
           <div className="ratio-card">
             <div className="ratio-label"><span className="dot dot-risky" /> Risky releases</div>
-            <div className="ratio-value">{pct(risky)}%</div>
+            <div className="ratio-value">
+              {pct(risky)}%
+              <span className="ratio-info">
+                <Info size={16} />
+                <span className="ratio-tooltip">
+                  <span className="ratio-tooltip-caret" />
+                  <strong className="ratio-tooltip-title">Risky releases</strong>
+                  <span className="ratio-tooltip-text">
+                    {pct(risky)}% of releases were risky — they failed the quality gate at the time of release.
+                  </span>
+                  <a href="#" className="ratio-tooltip-link">
+                    Understand quality gates
+                    <ExternalLink size={12} />
+                  </a>
+                </span>
+              </span>
+            </div>
             <div className="ratio-sub">{risky} of {filtered.length} releases</div>
           </div>
         </div>
