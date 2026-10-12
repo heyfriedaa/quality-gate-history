@@ -105,23 +105,23 @@ function SummaryPage({ onNavigate }) {
           </div>
         </div>
 
-        <div className="summary-panel">
-          <div className="code-tabs">
-            <button
-              className={`code-tab ${tab === 'new' ? 'active' : ''}`}
-              onClick={() => setTab('new')}
-            >
-              New Code
-              {!passed && <span className="tab-fail-badge">1 failed</span>}
-            </button>
-            <button
-              className={`code-tab ${tab === 'overall' ? 'active' : ''}`}
-              onClick={() => setTab('overall')}
-            >
-              Overall Code
-            </button>
-          </div>
+        <div className="code-tabs">
+          <button
+            className={`code-tab ${tab === 'new' ? 'active' : ''}`}
+            onClick={() => setTab('new')}
+          >
+            New Code
+            {!passed && <span className="tab-fail-badge">1 failed</span>}
+          </button>
+          <button
+            className={`code-tab ${tab === 'overall' ? 'active' : ''}`}
+            onClick={() => setTab('overall')}
+          >
+            Overall Code
+          </button>
+        </div>
 
+        <div className={`summary-panel ${tab === 'new' ? 'corner-left-flat' : ''}`}>
           <div className="summary-body">
             <div className="summary-left">
               <div className="summary-period">
@@ -167,8 +167,12 @@ function SummaryPage({ onNavigate }) {
                 <div className="metric-sub">on 387 New Lines</div>
               </div>
               <div className="metric-cell">
-                <div className="card-heading">Security Hotspots</div>
+                <div className="card-heading">
+                  Security Hotspots
+                  <span className="badge-deprecated">Deprecated</span>
+                </div>
                 <div className="metric-value">0</div>
+                <div className="metric-sub">No conditions set</div>
               </div>
             </div>
           </div>
